@@ -3,6 +3,10 @@
 A **real-time TCP chat application written in C++** that supports multiple simultaneous clients using **multithreading and socket programming**.
 
 The server manages concurrent client connections and broadcasts messages between clients in real time.
+![Language](https://img.shields.io/badge/Language-C++-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
+![Networking](https://img.shields.io/badge/Networking-Winsock2-green)
+
 
 ---
 
