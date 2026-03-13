@@ -41,19 +41,23 @@ Client 3 ─┘
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
+```bash
 MultithreadedChat/
+│
 ├── server/
 │   ├── main.cpp            # Server entry point
 │   ├── ChatServer.h        # Server class declaration
 │   └── ChatServer.cpp      # Server class implementation
+│
 ├── client/
 │   ├── main.cpp            # Client entry point
 │   ├── ChatClient.h        # Client class declaration
 │   └── ChatClient.cpp      # Client class implementation
+│
 ├── Makefile                # Build automation (Linux/macOS)
-└── README.md               # This file
+└── README.md               # Project documentation
 
 
 ---
