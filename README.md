@@ -5,14 +5,6 @@ The server handles concurrent client connections and broadcasts messages between
 
 ---
 
-# 📸 Demo
-
-![Chat Demo](screenshots/demo.gif)
-
-> Multiple clients connected to the server and exchanging messages in real time.
-
----
-
 # ✨ Key Features
 
 ✅ **Multi-client support**  
