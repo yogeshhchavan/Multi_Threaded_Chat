@@ -1,47 +1,49 @@
 # 🚀 Multithreaded Chat Application (C++)
 
-A **real-time TCP chat application built in C++** that supports multiple simultaneous clients using **multithreading and socket programming**.  
-The server handles concurrent client connections and broadcasts messages between them in real time.
+A **real-time TCP chat application written in C++** that supports multiple simultaneous clients using **multithreading and socket programming**.
+
+The server manages concurrent client connections and broadcasts messages between clients in real time.
 
 ---
 
-# ✨ Key Features
+# ✨ Features
 
-✅ **Multi-client support**  
-Server handles multiple clients concurrently using **Win32 threads (`CreateThread`)**
+- **Multi-client support**  
+  Handles multiple clients concurrently using **Win32 threads (`CreateThread`)**
 
-✅ **Real-time message broadcasting**  
-Messages sent by one client are instantly delivered to all other connected clients
+- **Real-time message broadcasting**  
+  Messages from one client are instantly delivered to all other connected clients
 
-✅ **Thread-safe architecture**  
-Shared client list protected using **`CRITICAL_SECTION`**
+- **Thread-safe architecture**  
+  Shared client list protected using **`CRITICAL_SECTION`**
 
-✅ **Graceful client disconnects**  
-Server detects client disconnections and informs remaining users
+- **Graceful disconnect handling**  
+  Server detects client disconnections and notifies remaining users
 
-✅ **Username-based chat system**  
-Each user joins the chat with a unique username
+- **Username-based messaging**  
+  Each client joins the chat using a unique username
 
 ---
 
 # 🏗 System Architecture
+
 
 Client 1 ─┐
 Client 2 ─┼──────► Chat Server ─────► Broadcast to all clients
 Client 3 ─┘
 
 
-**Workflow**
+### Workflow
 
-1. Server listens for incoming TCP connections
-2. Each new client connection spawns a **separate thread**
-3. Client sends username after connecting
-4. Server receives messages and **broadcasts to all other clients**
-5. If a client disconnects, the server removes it safely
+1. Server listens for incoming TCP connections  
+2. Each client connection spawns a **separate thread**  
+3. Client sends username after connecting  
+4. Server receives messages and **broadcasts to all connected clients**  
+5. When a client disconnects, the server removes it safely from the list  
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```bash
 MultithreadedChat/
@@ -59,25 +61,16 @@ MultithreadedChat/
 ├── Makefile                # Build automation (Linux/macOS)
 └── README.md               # Project documentation
 
+⚙️ Technologies Used
+Technology	Purpose
+C++	Core programming language
+TCP Sockets	Network communication
+Win32 Threads	Concurrent client handling
+CRITICAL_SECTION	Thread synchronization
 
----
 
-# ⚙️ Technologies Used
-
-| Technology | Purpose |
-|------------|--------|
-| C++ | Core programming language |
-| TCP Sockets | Network communication |
-| Win32 Threads | Concurrent client handling |
-| CRITICAL_SECTION | Thread synchronization |
-
----
-
-# 🛠 Build Instructions
-
-## Windows (MinGW / g++)
-
-```bash
+🛠 Build Instructions
+Windows (MinGW / g++)
 # Create output directory
 mkdir bin
 
@@ -86,15 +79,18 @@ g++ -std=c++11 -Wall -o bin/server.exe server/main.cpp server/ChatServer.cpp -lw
 
 # Compile client
 g++ -std=c++11 -Wall -o bin/client.exe client/main.cpp client/ChatClient.cpp -lws2_32
+
 Linux / macOS
 make
+
 ▶ Running the Application
-Start Server
+Start the Server
 ./bin/server
 
 or
 
 ./bin/server 8080
+
 Start Clients
 
 Open multiple terminals.
@@ -107,9 +103,10 @@ or
 
 Enter your username and start chatting.
 
-Commands:
+Command to exit:
 
-/quit  → disconnect from chat
+/quit
+
 📡 Communication Protocol
 Step	Direction	Data
 1	Client → Server	Username
@@ -118,8 +115,9 @@ Step	Direction	Data
 
 Example:
 
-[Satish]: Hello everyone!
-[John]: Hi Satish!
+[Yogesh]: Hello everyone!
+[John]: Hi Yogesh!
+
 🧠 Learning Outcomes
 
 This project demonstrates:
@@ -136,11 +134,12 @@ Concurrent Network Applications
 
 GUI chat interface
 
-End-to-end encryption
+End-to-end message encryption
 
-Message history storage
+Chat history persistence
 
-File transfer support
+File transfer capability
 
-Cross-platform threading
+Cross-platform threading support
 
+# 🏗 System Architecture
